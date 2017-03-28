@@ -1,0 +1,23 @@
+defmodule GolemExample.Mixfile do
+  use Mix.Project
+
+  def project do
+    [app: :golem_example,
+     version: "0.1.0",
+     elixir: "~> 1.4",
+     build_embedded: Mix.env == :prod,
+     start_permanent: Mix.env == :prod,
+     deps: deps()]
+  end
+
+  def application do
+    [
+      mod: {GolemExample, []},
+      extra_applications: [:logger]
+    ]
+  end
+
+  defp deps do
+    [{:golem, "~> 0.0.1-alpha3"}]
+  end
+end
